@@ -1,0 +1,78 @@
+Docker is a tool (platform) used to create, package, and run applications in a lightweight, portable unit called a container.
+
+A container includes:
+✅ your app
+✅ libraries & dependencies
+✅ configuration needed to run
+
+Docker Fundamentals (Core Concepts)
+
+1) Container
+A container is a running instance of an image.
+Fast to start
+Uses less memory than Virtual Machines (VMs)
+Shares the host OS kernel
+
+📌 Example: Running a Python API inside a container.
+
+2) Image
+A Docker image is like a template / blueprint used to create containers.
+Read-only
+Built using a Dockerfile
+
+📌 Example: An image with Nginx + your website files.
+
+3) Dockerfile
+A Dockerfile is a script that tells Docker how to build an image.
+Example steps inside Dockerfile:
+Choose base OS (Ubuntu, Alpine, Node, etc.)
+Copy app files
+Install dependencies
+Run your app
+
+4) Docker Engine
+The Docker Engine is the main service that runs Docker.
+It manages:
+building images
+running containers
+networking & storage
+
+5) Docker Registry (Docker Hub)
+A registry is where Docker images are stored.
+Docker Hub is the most popular public registry
+Private registries exist for companies
+
+📌 Example: docker pull nginx
+
+6) Volumes (Storage)
+Containers are temporary. If a container is deleted, data may be lost.
+So we use volumes to store data permanently.
+
+✅ Used for: DB storage, logs, uploads.
+
+7) Networking
+Docker provides networks to allow containers to talk to each other.
+Common types:
+bridge (default)
+host
+none
+
+📌 Example: Your app container talks to MySQL container.
+
+8) Docker Compose (Multi-container apps)
+Docker Compose helps run multiple services using one file: docker-compose.yml
+
+✅ Example stack:
+frontend
+backend API
+database
+
+Docker vs Virtual Machine (Quick)
+
+Feature	             Docker Container	            Virtual Machine
+Boot time	              Seconds	                   Minutes
+Uses OS	              Shares Host OS	             Own full OS
+Size	                Small (MBs)	                 Large (GBs)
+Performance	          Faster	                     Slower
+
+
