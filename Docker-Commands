@@ -1,0 +1,65 @@
+Common Docker Commands
+
+docker version --> Displays Docker client and server version information
+docker info --> Shows detailed information about Docker installation 
+docker login --> Log in to a Docker registry
+docker logout --> Log out from a Docker registry
+
+Docker Image Commands
+
+docker images --> Lists all images available locally
+docker pull <image:tag>  --> Downloads an image from a Docker registry
+docker push <image:tag>  --> Uploads an image to a Docker registry
+docker build -t <name:tag> .  --> Builds an image using the Dockerfile located in the current directory, tagging it with the provided name and tag
+docker rmi <image_id>  --> Removes an image by its ID
+docker tag <image:tag>
+<new_tag>                 --> Adds a new tag to an existing image
+docker images -f
+reference='*:<tag>'   --> Lists images matching a specific tag
+
+
+Container Management Commands
+
+docker ps --> Lists running containers
+docker ps -a --> Lists all containers (running and exited)
+docker ps -f status=running --> List all running containers
+docker ps -f status=exited --> List all containers with status of exited
+docker run <image> --> Runs a container from a specified image
+docker run -d <image>  --> Runs a container in detached (background) mode
+docker run -it <image> --> Runs a container in interactive mode
+docker start <container_id> --> Starts an existing stopped container
+docker stop <container_id> --> Stops a running container
+docker restart <container_id> --> Restarts a container
+docker rm <container_id> --> Removes a stopped container
+docker exec -it <container_id> <command>  --> Runs a command inside a running container interactively
+docker logs <container_id> --> Fetches logs from a container
+docker rm -f $(docker ps -aq) --> Forcefully stop and remove ALL containers
+
+
+Multi-Stage Build Commands
+
+docker build -t <name:tag> -f <Dockerfile> .  --> Builds an image using a specific Dockerfile
+FROM <image> AS <alias> (Dockerfile) --> Defines an intermediate stage with an alias
+COPY --from=<alias> <src> <dest> (Dockerfile) --> Copies files from one stage to another in a multi-stage build
+
+
+Docker Network Commands
+
+docker network ls --> Lists all Docker networks 
+docker network create <network_name> --> Creates a new Docker network
+docker network inspect <network_name> --> Shows detailed information about a network
+docker network connect <network> <container> --> Connects a container to a network
+docker network disconnect <network> <container> -->Disconnects a container from a network
+docker network rm <network_name> --> Removes a Docker network
+
+Docker Compose Commands
+
+docker compose up --> Builds and starts containers defined in compose file
+docker compose up -d --> Runs containers in detached mode
+docker compose down --> Stops and removes containers and networks
+docker compose build --> Builds images defined in the compose file
+docker compose logs --> Displays logs of containers managed by Docker Compose
+docker compose ps --> Lists containers managed by Docker Compose
+docker compose exec <service> <cmd> --> Executes a command inside a running container
+docker compose restart --> Restarts containers managed by Docker Compose
+
